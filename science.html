@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="nav.science">サイエンス</title>
+    <meta name="description" content="ピンクダイヤ（色中心）が量子コンピュータ材料として注目される理由を、やさしく解説します。">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+        .topbar { position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid #e5e7eb; z-index: 40; }
+        .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+        .page-header { padding: 20px 0 0; }
+        .kicker { color: var(--text-secondary); font-size: 12px; letter-spacing: .04em; font-weight: 700; }
+        .title { font-size: 24px; font-weight: 800; color: var(--primary-blue); line-height: 1.35; margin: 6px 0 6px; }
+        .subtitle { color: var(--text-secondary); }
+        .section { display: block; scroll-margin-top: 88px; padding: 22px 0; }
+        .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+        @media (min-width: 820px) { .grid { grid-template-columns: 1.1fr 1fr; } }
+        .pill { display: inline-block; font-size: 12px; background: #eef2ff; color: #1d4ed8; padding: 4px 10px; border-radius: 9999px; font-weight: 800; }
+        .figure { background: #fff; border: 2px dashed var(--border); border-radius: 12px; padding: 8px; text-align: center; }
+        .figure img { width: 100%; height: auto; border-radius: 8px; }
+        .figure small { display: block; margin-top: 6px; color: var(--text-secondary); }
+        .def { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 12px; margin: 10px 0; }
+        .def dt { font-weight: 800; color: var(--text-primary); }
+        .def dd { margin: 4px 0 0; color: var(--text-secondary); }
+        .qa { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 12px; margin: 10px 0; }
+        .example { background: #ffebee; border-left: 3px solid var(--primary-red); border-radius: 8px; padding: 10px; color: var(--text-primary); }
+        .note { font-size: 14px; color: var(--text-secondary); background: #f5f5f5; border: 1px solid #e5e7eb; padding: 10px; border-radius: 10px; }
+        .toc { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .toc a { font-size: 13px; background: #eef2ff; color: #1d4ed8; padding: 6px 10px; border-radius: 999px; text-decoration: none; border: 1px solid #dbe5ff; }
+        .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 14px; color: #6b7280; }
+        .back-home { display: inline-block; margin-left: 8px; font-size: 14px; }
+        .card { background: #fff; border-radius: 12px; box-shadow: var(--shadow); padding: 16px; }
+        .card h2, .card h3 { color: var(--text-primary); }
+        .list { padding-left: 18px; }
+    </style>
+    <meta name="theme-color" content="#2979FF">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/pinkDiamond.png">
+    <link rel="apple-touch-icon" href="assets/pinkDiamond.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body style="background:#f9fafb; color:#1f2937;">
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <span aria-hidden="true" style="font-size:24px;">💎</span>
+                <h1 style="font-size:20px; font-weight:700;" data-i18n="nav.science">サイエンス</h1>
+            </div>
+            <div>
+                <a href="index.html#science" class="back-home" aria-label="体験ページへ戻る" data-i18n="link.back.experience">← 体験ページへ戻る</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-bottom:56px;">
+        <div class="page-header">
+            <div class="kicker" data-i18n="sci.kicker">やさしく学ぶ 量子の世界</div>
+            <h1 class="title" data-i18n="sci.title">ピンクダイヤはなぜ量子コンピュータに役立つの？</h1>
+            <p class="subtitle" data-i18n="sci.subtitle">「そもそも量子って？」「色中心って何？」という前提から、段階的にわかるページです。はじめてでも大丈夫。</p>
+        </div>
+
+        <section id="prereq" class="section">
+            <div class="card">
+                <span class="pill" data-i18n="sci.prereq.pill">前提知識</span>
+                <h2 data-i18n="sci.prereq.title">まずはここから：言葉の説明</h2>
+                <dl class="def">
+                    <dt data-i18n="sci.def.quantum.dt">量子（りょうし）</dt>
+                    <dd data-i18n="sci.def.quantum.dd">とても小さな世界での「モノやエネルギーの最小の単位」の考え方。ふだんの世界とちがう不思議なルールで動く。</dd>
+                </dl>
+                <dl class="def">
+                    <dt data-i18n="sci.def.qubit.dt">量子ビット（キュービット）</dt>
+                    <dd data-i18n="sci.def.qubit.dd">量子版のスイッチ。ふつうのスイッチ（ON/OFF）に似ているけれど、実はONとOFFがまざった特別な状態にもなれる。</dd>
+                </dl>
+                <dl class="def">
+                    <dt data-i18n="sci.def.colorcenter.dt">ダイヤの色中心（しきちゅうしん）</dt>
+                    <dd data-i18n="sci.def.colorcenter.dd">ダイヤの中にある「特別な場所」。原子がぬけた穴（空席）や、ちがう原子が入ったことで、光ったり、状態を変えたりできる。</dd>
+                </dl>
+                <dl class="def">
+                    <dt data-i18n="sci.def.nv.dt">NV中心（エヌブイちゅうしん）</dt>
+                    <dd data-i18n="sci.def.nv.dd">ダイヤの中で「窒素（N）と空席（V）」がペアになった色中心。光と弱い電波で状態を操作・読み取りできる。</dd>
+                </dl>
+                <div class="example" data-i18n="sci.example">たとえ：色中心は、ダイヤの中にある「とびら付きの小部屋」。光を当てると、とびらが開いて部屋の灯りが明るくなったり暗くなったりする。明るさの違いが「状態の違い」を教えてくれる。</div>
+                <div class="note" data-i18n="sci.note">このページでは、とくに「NV中心」を例にして説明します。</div>
+            </div>
+        </section>
+
+        <section id="intro" class="section">
+            <div class="grid">
+                <article class="card">
+                    <span class="pill" data-i18n="sci.intro.pill">はじめに</span>
+                    <h2 data-i18n="sci.intro.title">ピンクダイヤって何？</h2>
+                    <p data-i18n-html="sci.intro.text">
+                        ここでいう「ピンクダイヤ」は、ダイヤの中にある<strong>色中心</strong>のこと。色中心があると、ダイヤは色づいて見え、さらに光を使って小さなスイッチ（量子ビット）のようにふるまうことがあります。 有名なのは<strong>NV中心（窒素と空席のセット）</strong>。光と弱い電波（マイクロ波）で、中の電子の状態（スピン）を変えたり読んだりできます。
+                    </p>
+                    <div class="toc">
+                        <a href="#basics" data-i18n="sci.toc.basics">量子×ダイヤの基本</a>
+                        <a href="#why" data-i18n="sci.toc.why">注目の理由</a>
+                        <a href="#apps" data-i18n="sci.toc.apps">どこで役立つ？</a>
+                        <a href="#faq" data-i18n="sci.toc.faq">Q&A</a>
+                    </div>
+                </article>
+                <aside class="card">
+                    <div class="figure">
+                        <img src="assets/nv_center_schematic.svg" alt="ダイヤ格子中のNV中心（Nと空孔）と光学読み出しの模式図">
+                        <small data-i18n="sci.figure.caption">模式図：N（青）とV（空孔）が隣り合うNV中心。緑/青の励起光で赤く蛍光します。</small>
+                    </div>
+                    <h3 style="margin-top:10px;" data-i18n="sci.highlights.title">ここがスゴい！（かんたん要約）</h3>
+                    <ul class="list">
+                        <li data-i18n="sci.highlights.1">特別な冷蔵庫なしでも動くことがある（室温でもOKな場合あり）</li>
+                        <li data-i18n="sci.highlights.2">光で「オン・オフ」を読みやすい（読み取りが簡単）</li>
+                        <li data-i18n="sci.highlights.3">ダイヤはとても丈夫で長持ち（安定して使える）</li>
+                        <li data-i18n="sci.highlights.4">作り方を工夫できる（CVDなどでコントロール）</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section id="basics" class="section">
+            <div class="card">
+                <span class="pill" data-i18n="sci.basics.pill">基本</span>
+                <h2 data-i18n="sci.basics.title">量子とダイヤの関係を3ステップで</h2>
+                <div style="display:flex; gap:10px; align-items:flex-start; margin:8px 0;">
+                    <div class="pill" style="background:#e0e7ff; color:#1d4ed8;">1</div>
+                    <div data-i18n="sci.basics.step1">ダイヤの中に「色中心」という特別な場所があると、そこが光を吸収したり出したりする。</div>
+                </div>
+                <div style="display:flex; gap:10px; align-items:flex-start; margin:8px 0;">
+                    <div class="pill" style="background:#e0e7ff; color:#1d4ed8;">2</div>
+                    <div data-i18n="sci.basics.step2">色中心には「スピン」という、小さなコマのような性質があり、弱い電波で向きを変えられる。</div>
+                </div>
+                <div style="display:flex; gap:10px; align-items:flex-start; margin:8px 0;">
+                    <div class="pill" style="background:#e0e7ff; color:#1d4ed8;">3</div>
+                    <div data-i18n="sci.basics.step3">光の明るさの違いとしてスピンの向きを読み取れるので、量子の情報（量子ビット）をあつかえる。</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why" class="section">
+            <div class="card">
+                <span class="pill" data-i18n="sci.why.pill">理由</span>
+                <h2 data-i18n="sci.why.title">ピンクダイヤが量子コンピュータ素材として期待される理由</h2>
+                <ul class="list">
+                    <li data-i18n-html="sci.why.item1"><strong>室温でも使える可能性</strong>：とても冷やさなくても動くことがあり、機械がシンプルになる。</li>
+                    <li data-i18n-html="sci.why.item2"><strong>光で読み取れる</strong>：光る強さの違いで状態をわかりやすく読める。遠くとつないで量子の情報をやりとりする研究も進む。</li>
+                    <li data-i18n-html="sci.why.item3"><strong>長く安定して働く</strong>：ダイヤは硬くてきれいな材料。余計なゆらぎを減らす工夫で、状態を長く保てる。</li>
+                    <li data-i18n-html="sci.why.item4"><strong>作りやすく応用しやすい</strong>：作る場所や数をある程度コントロールでき、光の回路（フォトニクス）などと組み合わせやすい。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="apps" class="section">
+            <div class="card">
+                <span class="pill" data-i18n="sci.apps.pill">活用</span>
+                <h2 data-i18n="sci.apps.title">どんなところで役立つの？</h2>
+                <ul class="list">
+                    <li data-i18n-html="sci.apps.item1"><strong>超高感度センサー</strong>：とても弱い磁石の強さや、温度の変化を感じ取れる（生き物の研究などにも）。</li>
+                    <li data-i18n-html="sci.apps.item2"><strong>量子通信</strong>：光を使って離れた場所と特別な情報のやりとりをする研究に使われる。</li>
+                    <li data-i18n-html="sci.apps.item3"><strong>量子計算</strong>：小さな規模の計算や、将来の分散型量子計算の部品として期待される。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="card">
+                <span class="pill" data-i18n="sci.faq.pill">Q&A</span>
+                <div class="qa">
+                    <h3 data-i18n="sci.faq.q1">Q. ピンク色そのものが大事なの？</h3>
+                    <p data-i18n="sci.faq.a1">A. 見た目の色よりも、色の原因である「色中心」の性質が大事。NV中心など、決まった種類が使われます。</p>
+                </div>
+                <div class="qa">
+                    <h3 data-i18n="sci.faq.q2">Q. どうして室温で動くことがすごいの？</h3>
+                    <p data-i18n="sci.faq.a2.p">A. とても冷やすための大きな装置（極低温の冷凍機）がいらなくなるからです。これにより、</p>
+                    <ul class="list">
+                        <li data-i18n="sci.faq.a2.li1">装置が小さく・安く・簡単になる</li>
+                        <li data-i18n="sci.faq.a2.li2">学校や小さな研究室でも実験しやすくなる</li>
+                        <li data-i18n="sci.faq.a2.li3">将来、身近な場所に置ける実用機につながりやすい</li>
+                    </ul>
+                    <p data-i18n="sci.faq.a2.end">つまり、室温で使える可能性は「広く使える未来」に近づく大切な一歩なのです。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card">
+                <span class="pill" data-i18n="sci.hints.pill">学びのヒント</span>
+                <h2 data-i18n="sci.hints.title">もう少し知りたい人へ</h2>
+                <ul class="list">
+                    <li data-i18n="sci.hints.li1">キーワード：NV中心、色中心、スピン、フォトニクス、量子センサー</li>
+                    <li data-i18n="sci.hints.li2">比べてみよう：超伝導の量子ビットは強力だけど、とても冷やす必要があるよ。</li>
+                    <li data-i18n="sci.hints.li3">進路のヒント：物理・化学・情報の勉強が、この分野の土台になります。</li>
+                </ul>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <script src="js/i18n.js"></script>
+</body>
+</html>

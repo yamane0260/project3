@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="app.title">花をいけて、光をあわせて、赤をみつける</title>
+    <meta name="description" content="10分の体験をもっと楽しむための、まえもって知るサイトです" data-i18n-attr="content:app.desc">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="theme-color" content="#2979FF">
+</head>
+<body>
+    
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- ホーム -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1 class="hero-title" data-i18n="home.welcome">ワークショップにようこそ！</h1>
+                <p class="hero-subtitle" data-i18n="home.subtitle">これは、ワークショップをもっと楽しむためのWEBサイトです。</p>
+                <div style="margin-top:16px; display:flex; justify-content:center;">
+                    <button type="button" id="startExperience" class="connection-btn" aria-label="スタート" data-i18n="home.start">スタート</button>
+                </div>
+                <div class="lang-switch" style="margin-top:12px; display:flex; gap:8px; justify-content:center;">
+                    <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+                    <button type="button" class="lang-btn" data-lang="en">English</button>
+                </div>
+            </div>
+
+            <div class="cards-grid cards-grid--home">
+                <div class="card priority-1" data-target="art">
+                    <div class="card-icon">🌸</div>
+                    <h3 data-i18n="nav.art">アート</h3>
+                </div>
+
+                <div class="card priority-2" data-target="tech">
+                    <div class="card-icon">💡</div>
+                    <h3 data-i18n="nav.tech">テクノロジー</h3>
+                </div>
+                
+                <div class="card priority-3" data-target="science">
+                    <div class="card-icon">💎</div>
+                    <h3 data-i18n="nav.science">サイエンス</h3>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <!-- アート -->
+        <section id="art" class="section">
+            <div class="section-header">
+                <h2 data-i18n="nav.art">アート</h2>
+            </div>
+
+            <div class="mission-box">
+                <span class="mission-label" data-i18n="art.mission">ミッション</span>
+                <p data-i18n="art.mission.text">アートのひとつ「生花（いけばな）」を たいけんしてみよう</p>
+            </div>
+
+            <div class="art-experience">
+                <div class="ikebana-workspace">
+                    <h4 data-i18n="art.tap">タップで いけてみよう</h4>
+                    <div class="palette">
+                        <img src="assets/flowerBlue.png" alt="blue" class="flower-thumb" data-src="assets/flowerBlue.png">
+                        <img src="assets/flowerYellow.png" alt="yellow" class="flower-thumb" data-src="assets/flowerYellow.png">
+                        <img src="assets/flowerRed.png" alt="red" class="flower-thumb" data-src="assets/flowerRed.png">
+                        <img src="assets/flowerPink.png" alt="pink" class="flower-thumb" data-src="assets/flowerPink.png">
+                        <img src="assets/ikebana_branch_tall_1.png" alt="branch tall 1" class="flower-thumb" data-src="assets/ikebana_branch_tall_1.png">
+                        <img src="assets/ikebana_branch_tall_2.png" alt="branch tall 2" class="flower-thumb" data-src="assets/ikebana_branch_tall_2.png">
+                        <img src="assets/ikebana_flower_wide_1.png" alt="flower wide 1" class="flower-thumb" data-src="assets/ikebana_flower_wide_1.png">
+                        <img src="assets/ikebana_flower_wide_2.png" alt="flower wide 2" class="flower-thumb" data-src="assets/ikebana_flower_wide_2.png">
+                        <img src="assets/ikebana_leaf_small_1.png" alt="leaf small 1" class="flower-thumb" data-src="assets/ikebana_leaf_small_1.png">
+                        <img src="assets/ikebana_leaf_small_2.png" alt="leaf small 2" class="flower-thumb" data-src="assets/ikebana_leaf_small_2.png">
+                    </div>
+                    <div class="presets">
+                        <h4 data-i18n="art.presets">プリセット（立派）</h4>
+                        <div class="preset-buttons">
+                            <button class="preset-btn" data-preset="sogetsu" aria-label="そうげつ きほん">そうげつ 🌿</button>
+                            <button class="preset-btn" data-preset="ohara" aria-label="おはら きほん">おはら 🌸</button>
+                        </div>
+                    </div>
+                    <div class="stage" id="ikebanaStage">
+                        <div class="pedestal" id="pedestal"></div>
+                    </div>
+                    <div class="ikebana-controls">
+                        <div class="bottom-controls">
+                            <div class="history-controls">
+                                <button class="item-btn history" id="undoBtn" aria-label="もどる" data-i18n="btn.undo">もどる ⟲</button>
+                                <button class="item-btn history" id="redoBtn" aria-label="すすむ" data-i18n="btn.redo">すすむ ⟲</button>
+                            </div>
+                            <button class="item-btn rotate" id="rotateLeft" aria-label="ひだりに まわす" data-i18n="btn.left">ひだり ↺</button>
+                            <button class="item-btn rotate" id="rotateRight" aria-label="みぎに まわす" data-i18n="btn.right">みぎ ↻</button>
+                            <button class="item-btn delete" id="deleteBtnBottom" aria-label="選択した花を削除" data-i18n="btn.delete">🗑</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- もっとしりたい は 下の つぎへ と ならべて 表示するため、ここでは表示しません -->
+
+            <div class="connection-card">
+                <h4 data-i18n="connect.title">つながり</h4>
+                <p data-i18n="connect.text.ikebana">このいけ方を 光で 再現してみよう</p>
+                <div class="action-buttons">
+                    <button type="button" class="connection-btn" onclick="location.href='ikebana.html'" aria-label="生花の せつめいを みる" data-i18n="connect.more.ikebana">🌿 くわしく みる</button>
+                    <button class="connection-btn" data-target="tech" aria-label="つぎへ すすむ" data-i18n="connect.next">つぎへ</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- テクノロジー -->
+        <section id="tech" class="section">
+            <div class="section-header">
+                <h2 data-i18n="nav.tech">テクノロジー</h2>
+            </div>
+
+            <div class="mission-box">
+                <span class="mission-label" data-i18n="art.mission">ミッション</span>
+                <p data-i18n="tech.mission.text">ワイヤを ならべて すうじを つくろう</p>
+            </div>
+
+            <div class="tech-experience">
+                <div class="sevenseg-container">
+                    <!-- 左: 7セグLED 表示部 -->
+                    <div class="sevenseg-display" aria-label="7セグLED表示">
+                        <div class="segment seg-a" data-seg="a"></div>
+                        <div class="segment seg-b" data-seg="b"></div>
+                        <div class="segment seg-c" data-seg="c"></div>
+                        <div class="segment seg-d" data-seg="d"></div>
+                        <div class="segment seg-e" data-seg="e"></div>
+                        <div class="segment seg-f" data-seg="f"></div>
+                        <div class="segment seg-g" data-seg="g"></div>
+                        <div class="sevenseg-result" id="sevensegResult">?</div>
+                    </div>
+
+                    <!-- 右: ブレッドボード＆配線 -->
+                    <div class="breadboard-area">
+                        <div class="wire-controls" role="group" aria-label="ワイヤの向き">
+                            <div class="wire-inventory" id="wireInventory" aria-label="ワイヤ在庫 7本">
+                                <div class="inv-wire h" draggable="true"></div>
+                                <div class="inv-wire h" draggable="true"></div>
+                                <div class="inv-wire h" draggable="true"></div>
+                                <div class="inv-wire h" draggable="true"></div>
+                                <div class="inv-wire h" draggable="true"></div>
+                                <div class="inv-wire h" draggable="true"></div>
+                                <div class="inv-wire h" draggable="true"></div>
+                            </div>
+                            <button type="button" id="wireReset" aria-label="ワイヤをリセット" data-i18n="tech.reset">リセット</button>
+                        </div>
+                        <div class="breadboard" id="breadboard">
+                            <!-- 電源レール -->
+                            <div class="rail rail-top rail-red" aria-hidden="true"></div>
+                            <div class="rail rail-top rail-blue" aria-hidden="true"></div>
+                            <div class="rail rail-bottom rail-red" aria-hidden="true"></div>
+                            <div class="rail rail-bottom rail-blue" aria-hidden="true"></div>
+                            <!-- タイポイント面（背景はCSSのグリッドで表現） -->
+                            <!-- スロット（7セグ各位置に対応、厳密一致） -->
+                            <div class="seg-slot h a" data-seg="a" data-orient="h"></div>
+                            <div class="seg-slot v b" data-seg="b" data-orient="v"></div>
+                            <div class="seg-slot v c" data-seg="c" data-orient="v"></div>
+                            <div class="seg-slot h d" data-seg="d" data-orient="h"></div>
+                            <div class="seg-slot v e" data-seg="e" data-orient="v"></div>
+                            <div class="seg-slot v f" data-seg="f" data-orient="v"></div>
+                            <div class="seg-slot h g" data-seg="g" data-orient="h"></div>
+                            <!-- ここに配置済みワイヤが追加される -->
+                        </div>
+                        <div class="inventory-hint" data-i18n="tech.inventory.hint">ワイヤを ならべてみよう</div>
+                    </div>
+                </div>
+
+                <!-- 数字の表示一覧（横スクロール） -->
+                <div class="sevenseg-legend" aria-label="7セグ 0〜9 一覧">
+                    <div class="legend-strip">
+                        <div class="legend-item" data-digit="0"><span>0</span><div class="mini"> 
+                            <div class="mseg a on"></div><div class="mseg b on"></div><div class="mseg c on"></div><div class="mseg d on"></div><div class="mseg e on"></div><div class="mseg f on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="1"><span>1</span><div class="mini">
+                            <div class="mseg b on"></div><div class="mseg c on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="2"><span>2</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg b on"></div><div class="mseg g on"></div><div class="mseg e on"></div><div class="mseg d on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="3"><span>3</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg b on"></div><div class="mseg g on"></div><div class="mseg c on"></div><div class="mseg d on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="4"><span>4</span><div class="mini">
+                            <div class="mseg f on"></div><div class="mseg g on"></div><div class="mseg b on"></div><div class="mseg c on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="5"><span>5</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg f on"></div><div class="mseg g on"></div><div class="mseg c on"></div><div class="mseg d on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="6"><span>6</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg f on"></div><div class="mseg g on"></div><div class="mseg e on"></div><div class="mseg c on"></div><div class="mseg d on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="7"><span>7</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg b on"></div><div class="mseg c on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="8"><span>8</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg b on"></div><div class="mseg c on"></div><div class="mseg d on"></div><div class="mseg e on"></div><div class="mseg f on"></div><div class="mseg g on"></div>
+                        </div></div>
+                        <div class="legend-item" data-digit="9"><span>9</span><div class="mini">
+                            <div class="mseg a on"></div><div class="mseg b on"></div><div class="mseg c on"></div><div class="mseg d on"></div><div class="mseg f on"></div><div class="mseg g on"></div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connection-card">
+                <div class="action-buttons">
+                    <button class="connection-btn" data-target="science" aria-label="つぎへ すすむ" data-i18n="connect.next">つぎへ</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- サイエンス -->
+        <section id="science" class="section">
+            <div class="section-header">
+                <h2 data-i18n="nav.science">サイエンス</h2>
+            </div>
+
+            <div class="mission-box">
+                <span class="mission-label" data-i18n="art.mission">ミッション</span>
+                <p data-i18n="sci.mission.text">ピンクダイヤが ひかる いろを さがしてみよう</p>
+            </div>
+
+            <div class="science-experience">
+                <div class="rgb-controls">
+                    <h4 data-i18n="sci.make.color">光の色を つくろう</h4>
+                    <div class="slider-group">
+                        <div class="slider-item">
+                            <label data-i18n="sci.red">あか</label>
+                            <input type="range" id="redSlider" min="0" max="100" value="0" class="slider red-slider">
+                            <span class="slider-value">0</span>
+                        </div>
+                        <div class="slider-item">
+                            <label data-i18n="sci.blue">あお</label>
+                            <input type="range" id="blueSlider" min="0" max="100" value="0" class="slider blue-slider">
+                            <span class="slider-value">0</span>
+                        </div>
+                        <div class="slider-item">
+                            <label data-i18n="sci.green">みどり</label>
+                            <input type="range" id="greenSlider" min="0" max="100" value="0" class="slider green-slider">
+                            <span class="slider-value">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diamond-display">
+                    <div class="rgb-spotlights" aria-hidden="true">
+                        <div class="torch torch-r" id="torchR">
+                            <div class="torch-icon"></div>
+                            <div class="torch-beam" id="beamR"></div>
+                        </div>
+                        <div class="torch torch-b" id="torchB">
+                            <div class="torch-icon"></div>
+                            <div class="torch-beam" id="beamB"></div>
+                        </div>
+                        <div class="torch torch-g" id="torchG">
+                            <div class="torch-icon"></div>
+                            <div class="torch-beam" id="beamG"></div>
+                        </div>
+                    </div>
+                    <div class="diamond-container">
+                        <img src="assets/pinkDiamond.png" alt="pink diamond" class="diamond-img">
+                        <div class="diamond-glow"></div>
+                        <div class="diamond-core"></div>
+                        <div class="sparkle-effect"></div>
+                    </div>
+                    
+                </div>
+
+                <div class="science-result">
+                    <div id="successMessage" class="success-message hidden" data-i18n="sci.success">成功！ あかく ひかったよ ✨</div>
+                </div>
+            </div>
+
+            <!-- Science の詳細は下の接続カードの「くわしく みる」へ集約 -->
+
+            <div class="info-section" id="scienceVideo">
+                <h3 data-i18n="sci.video">動画で学ぶ</h3>
+                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px;">
+                    <iframe src="https://www.youtube-nocookie.com/embed/0H9Y2w8ulbE" title="ピンクダイヤと量子の世界" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="connection-card">
+                <div class="action-buttons">
+                    <button type="button" class="connection-btn" onclick="location.href='science.html'" aria-label="サイエンスの せつめいを みる" data-i18n="sci.more">💎 もっとしりたい</button>
+                    <button class="connection-btn" data-target="home" aria-label="ホームにもどる" data-i18n="btn.back.home">ホームにもどる</button>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+        <!-- 米子高専（フラグ制御） -->
+        <section id="kosen" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>米子高専について</h2>
+            </div>
+
+            <div class="kosen-content">
+                <p>米子高専では「ハード（機構・電装）」「プログラム（制御）」「材料（電気材料）」の3分野を組み合わせたものづくりに取り組んでいます。</p>
+                <p>本展示は、それらを「花・光・ピンクダイヤ」で体験化しました。</p>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <!-- トースト通知 -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- ヒントモーダル（無効化済み） -->
+
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
